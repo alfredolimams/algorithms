@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int mmc ( int A , int B )
+{
+	int mdc = 1;
+	int div = 2;
+	int a = A, b = B;
+	while( a > 1 || b > 1 )
+	{
+		while( a%div == 0 || b%div == 0 )
+		{
+			mdc *= div;
+			if( a%div == 0 )
+			{
+				a /= div;
+			}
+			if( b%div == 0 )
+			{
+				b /= div;
+			}
+		}
+		++div;
+	}
+	return mdc;
+}
+
+int main(int argc, char const *argv[])
+{
+	int planetas;
+	int ans = 1;
+	double ti;
+	scanf("%d", &planetas);
+	int i;
+	for ( i = 0; i < planetas ; ++i)
+	{
+		scanf("%lf", &ti);
+		ans = mmc( ans, 10*ti );
+	}
+	printf("O tempo para o alinhamento dos planetas e %.1lf minutos\n", ans/10.0);
+	return 0;
+}
