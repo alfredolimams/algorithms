@@ -83,6 +83,10 @@ int main(int argc, char const *argv[])
 	{
 		int idx1 = lower_bound(all(can[0]),v) - can[0].begin();
 		cout << v << " - " << can[0][idx1] << endl;
+		for (int i = 0; i <= idx1; ++i)
+		{
+			
+		}
 	}
 
 	return 0;
