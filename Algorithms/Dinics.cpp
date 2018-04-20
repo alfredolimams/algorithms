@@ -15,7 +15,7 @@ bool bfs(int f, int t) {
 	while (!q.empty()) {
 		int v = q.front();	q.pop();
 		for (auto u : graph[v])
-			if (level[u] < 0 && graphM[v][u]){
+			if (level[u] < 0 && graphM[v][u]) {
 				level[u] = level[v] + 1;
 				q.push(u);
 			}
