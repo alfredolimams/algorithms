@@ -7,7 +7,7 @@ int graphM[210][210];
 vector<set<int>> graph;
 int level[210];
 
-bool bfs(int f, int t) 
+bool bfs(int f, int t)
 {
 	memset( level, -1 , sizeof level );
 	level[f] = 0;
@@ -46,10 +46,11 @@ int dinics(int f, int t)
 {
   	int flow_max = 0;
   	int flow;
-  	while (bfs(f, t))
-  	{
-		while( (flow = dfs(f, t, 1 << 20)) )	flow_max += flow;
-	}
+		do {
+			bfs(f, t);
+			flow = dfs(f, t, 1 << 20);
+			flow_max += flow;
+		} while (flow);
   return flow_max;
 }
 
