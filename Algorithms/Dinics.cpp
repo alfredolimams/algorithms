@@ -7,18 +7,15 @@ int graphM[210][210];
 vector<set<int>> graph;
 int level[210];
 
-bool bfs(int f, int t)
-{
+bool bfs(int f, int t) {
 	memset( level, -1 , sizeof level );
 	level[f] = 0;
 	queue<int> q;
 	q.push(f);
-	while (!q.empty())
-	{
+	while (!q.empty()) {
 		int v = q.front();	q.pop();
 		for (auto u : graph[v])
-		  	if (level[u] < 0 && graphM[v][u])
-			{
+		  	if (level[u] < 0 && graphM[v][u]){
 	    		level[u] = level[v] + 1;
 	    		q.push(u);
 	  		}
@@ -42,8 +39,7 @@ int dfs(int f, int t, int minFlow) {
   return maxFlow;
 }
 
-int dinics(int f, int t)
-{
+int dinics(int f, int t) {
   	int flow_max = 0;
   	int flow;
 		do {
