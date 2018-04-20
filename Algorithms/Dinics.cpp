@@ -40,13 +40,13 @@ int dfs(int f, int t, int minFlow) {
 }
 
 int dinics(int f, int t) {
-  	int flow_max = 0;
-  	int flow;
-		do {
-			bfs(f, t);
-			flow = dfs(f, t, 1 << 20);
-			flow_max += flow;
-		} while (flow);
+	int flow_max = 0;
+	int flow;
+	do {
+		bfs(f, t);
+		flow = dfs(f, t, 1 << 20);
+		flow_max += flow;
+	} while (flow);
   return flow_max;
 }
 
